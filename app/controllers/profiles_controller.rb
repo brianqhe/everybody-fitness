@@ -22,6 +22,9 @@ class ProfilesController < ApplicationController
 
   # POST /profiles or /profiles.json
   def create
+    if Profile.find_by(user_id: current_user.id)
+      redirect_to error_path
+    else
     @profile = Profile.new(profile_params)
 
     respond_to do |format|
@@ -33,6 +36,10 @@ class ProfilesController < ApplicationController
         format.json { render json: @profile.errors, status: :unprocessable_entity }
       end
     end
+  end
+  end
+  
+  def error
   end
 
   # PATCH/PUT /profiles/1 or /profiles/1.json
