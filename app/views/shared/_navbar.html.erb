@@ -6,10 +6,13 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home</a>
+        <%= link_to "Home", root_path, class: "nav-link active" %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Search</a>
+        <%= link_to "Search", profiles_path, class: "nav-link active" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Create Listing", new_profile_path, class: "nav-link active" %>
       </li>
       <li class="nav-item">
         <% if user_signed_in? %>
@@ -21,7 +24,7 @@
         <% end %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">About</a>
+        <%= link_to "About", about_path, class: "nav-link active" %>
       </li>
     </ul>
   </div>

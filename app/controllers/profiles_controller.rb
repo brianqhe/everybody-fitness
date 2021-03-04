@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, only: %i[new edit ]
 
   # GET /profiles or /profiles.json
   def index
@@ -45,6 +46,12 @@ class ProfilesController < ApplicationController
         format.json { render json: @profile.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def home
+  end
+
+  def about
   end
 
   # DELETE /profiles/1 or /profiles/1.json

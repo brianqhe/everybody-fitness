@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 2021_03_04_214849) do
   create_table "profiles", force: :cascade do |t|
     t.string "first_name", null: false
     t.string "last_name", null: false
-    t.integer "sex", null: false
-    t.integer "city", null: false
+    t.string "sex", null: false
+    t.string "city", null: false
     t.text "biography", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
