@@ -15,6 +15,20 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :first_name,
+                required: true,
+                autofocus: true %>
+    <%= f.input :last_name,
+                required: true,
+                autofocus: true %>
+    <%= f.input :sex,
+                required: true,
+                collection: [['Male', 1], ['Female', 2], ['Other', 3]],
+                autofocus: true %>
+    <%= f.input :city,
+                required: true,
+                collection: [['Sydney', 1], ['Melbourne', 2], ['Brisbane', 3] , ['Canberra', 4] , ['Perth', 5] , ['Adelaide', 6]],
+                autofocus: true %>    
   </div>
 
   <div class="form-actions">
