@@ -6,8 +6,8 @@
   <div class="form-inputs">
     <%= f.input :first_name, required: true, autofocus: true %>
     <%= f.input :last_name, required: true, autofocus: true %>
-    <%= f.input :sex, required: true, autofocus: true, collection: [['Male'], ['Female'], ['Other']] %>
-    <%= f.input :city, required: true, autofocus: true, collection: [['Sydney'], ['Melbourne'], ['Brisbane'], ['Canberra'], ['Adelaide'], ['Perth']] %>
+    <%= f.input :sex, required: true, autofocus: true, collection: [['Male', 'Male'], ['Female', 'Female']] %>
+    <%= f.input :city, required: true, autofocus: true, collection: [['Sydney', 'Sydney'], ['Melbourne', 'Melbourne'], ['Brisbane', 'Brisbane'], ['Canberra', 'Canberra'], ['Adelaide', 'Adelaide'], ['Perth', 'Perth']] %>
     <%= f.input :biography, required: true, autofocus: true %>
     <%= f.association :user %>
   </div>

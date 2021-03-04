@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
+  <a class="navbar-brand" href="#">Everybody Fitness</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -12,7 +12,11 @@
         <%= link_to "Search", profiles_path, class: "nav-link active" %>
       </li>
       <li class="nav-item">
-        <%= link_to "Create Listing", new_profile_path, class: "nav-link active" %>
+        <%# <% if Profile.find_by(user_id: current_user.id) %>
+          <%# <%= link_to "Edit Listing", edit_profile_path(user_id: current_user.id), class: "nav-link active" %>
+        <%# <% else %>
+          <%= link_to "Create Listing", new_profile_path, class: "nav-link active" %>
+        <%# <% end %>
       </li>
       <li class="nav-item">
         <% if user_signed_in? %>
