@@ -1,5 +1,11 @@
 <p id="notice"><%= notice %></p>
 
+<% if @profile.photo.attached? %>
+<p>
+  <%= image_tag @profile.photo %>
+</p>
+<% end %>
+
 <p>
   <strong>First name:</strong>
   <%= @profile.first_name %>
@@ -23,6 +29,11 @@
 <p>
   <strong>Biography:</strong>
   <%= @profile.biography %>
+</p>
+
+<p>
+  <strong>Specialty:</strong>
+  <%= @profile.specialty %>
 </p>
 
 <p>

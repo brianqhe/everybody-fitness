@@ -26,6 +26,8 @@ class ProfilesController < ApplicationController
       redirect_to error_path
     else
     @profile = Profile.new(profile_params)
+    @profile.user_id = current_user.id
+    @profile.photo.attach(params[:profile][:photo])
 
     respond_to do |format|
       if @profile.save
@@ -78,6 +80,6 @@ class ProfilesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def profile_params
-      params.require(:profile).permit(:first_name, :last_name, :sex, :city, :biography, :user_id)
+      params.require(:profile).permit(:first_name, :last_name, :sex, :city, :biography, :user_id, :photo)
     end
 end
