@@ -1,0 +1,16 @@
+<h1>Advanced Search</h1>
+
+<%= form_with model: @search do |f| %>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+
+    <%= f.label :city %>
+    <%= f.select :city, options_for_select(@cities), include_blank: true %><br>
+
+    <%= f.label :sex %>
+    <%= f.select :sex, options_for_select(@sexes), include_blank: true %><br><br>
+
+    <%= f.submit "Search" %>
+<% end %>
+
+<p><%= link_to "Back", '/profiles' %></p>

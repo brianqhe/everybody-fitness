@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :profiles
+  resources :searches
   devise_for :users
   root 'home#index'
   get '/about', to: 'home#about'
