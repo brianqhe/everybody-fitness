@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, only: %i[new edit ]
+  before_action :current_user 
 
   # GET /profiles or /profiles.json
   def index
@@ -18,6 +19,9 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1/edit
   def edit
+    if current_user != @profile.user
+      redirect_to error_path
+    end
   end
 
   # POST /profiles or /profiles.json
@@ -65,11 +69,15 @@ class ProfilesController < ApplicationController
 
   # DELETE /profiles/1 or /profiles/1.json
   def destroy
-    @profile.destroy
-    respond_to do |format|
-      format.html { redirect_to profiles_url, notice: "Profile was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    if current_user != @profile.user
+      redirect_to error_path
+    else
+      @profile.destroy
+      respond_to do |format|
+        format.html { redirect_to profiles_url, notice: "Profile was successfully destroyed." }
+        format.json { head :no_content }
+      end
+    end 
   end
 
   private
