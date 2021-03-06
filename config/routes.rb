@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
+  get 'messages/index'
+  get 'conversations/index'
   resources :profiles
   resources :searches
+  resources :conversations, only: [:index, :create] do
+    resources :messages, only: [:index, :create]
+  end
   devise_for :users
   root 'home#index'
   get '/about', to: 'home#about'

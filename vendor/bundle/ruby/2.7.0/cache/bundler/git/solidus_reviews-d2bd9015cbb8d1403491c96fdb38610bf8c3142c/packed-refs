@@ -1,0 +1,17 @@
+# pack-refs with: peeled fully-peeled sorted 
+311bc514c4c64b4300fea8967c7a59b48ac2555e refs/heads/allow-auth-devise-2
+f1d0915522088d61a664331bdc306fc9ad51574b refs/heads/bump-solidus_support
+a88740f0ec31ed9ea775ad7d74e865225fb978ad refs/heads/google-merchant-feed
+56094b7b7b15f0c9b648c4ee8f75f81a9946faf1 refs/heads/master
+550537387d2ffa589539babd096f8e61297c86f4 refs/heads/v1.0
+d7a7f489d630754d3807a256de4f4aee95525e53 refs/heads/v1.4
+ab00b46b48d717a5bc42edf2a4e7840c3c7a30c8 refs/tags/v1.0.0
+^550537387d2ffa589539babd096f8e61297c86f4
+32871053ad4f63a0e35f1b6d7b71b4d7f26aede0 refs/tags/v1.1.0
+e9fcd452237b274ce4670124d530ba7b0e05382f refs/tags/v1.1.1
+ffc118eaba86de645f4f12b2de1b3c90be43310c refs/tags/v1.2.0
+15f74b76124159cba3c3d98e17da11ace7322e12 refs/tags/v1.3.0
+f9a5d2ceb8b4ce5c52be3eb2d5d30cf6432abae2 refs/tags/v1.4.0
+^df1db97844a84053251394c8512b5cf19678d63a
+0d1c0e9fd491ceb9e6e5324a5546aabdd6af6592 refs/tags/v1.4.1
+^d7a7f489d630754d3807a256de4f4aee95525e53
