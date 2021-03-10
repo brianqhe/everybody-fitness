@@ -1,4 +1,5 @@
 class ExperiencesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_experience, only: %i[ show edit update destroy ]
 
   # GET /experiences or /experiences.json
@@ -64,6 +65,6 @@ class ExperiencesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def experience_params
-      params.fetch(:experience, {}).permit(:description, :profile_ids)
+      params.require(:experience).permit(:description, :profile_id)
     end
 end
