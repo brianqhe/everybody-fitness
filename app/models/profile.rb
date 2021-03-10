@@ -1,6 +1,7 @@
 class Profile < ApplicationRecord
   belongs_to :user
-  has_many :experiences
+  has_many :experiences_profiles
+  has_many :experiences, through: :experiences_profiles
   has_many :specialties
   has_one_attached :photo
 
