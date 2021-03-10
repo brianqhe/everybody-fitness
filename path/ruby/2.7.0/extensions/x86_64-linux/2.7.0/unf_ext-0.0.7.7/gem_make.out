@@ -1,0 +1,16 @@
+current directory: /mnt/c/users/brian/documents/coder-academy/term2/marketplace/src/everybody-fitness/path/ruby/2.7.0/gems/unf_ext-0.0.7.7/ext/unf_ext
+/usr/share/rvm/rubies/ruby-2.7.1/bin/ruby -I /usr/share/rvm/rubies/ruby-2.7.1/lib/ruby/site_ruby/2.7.0 -r ./siteconf20210310-19197-1ftfre3.rb extconf.rb
+checking for -lstdc++... yes
+creating Makefile
+
+current directory: /mnt/c/users/brian/documents/coder-academy/term2/marketplace/src/everybody-fitness/path/ruby/2.7.0/gems/unf_ext-0.0.7.7/ext/unf_ext
+make DESTDIR\= clean
+
+current directory: /mnt/c/users/brian/documents/coder-academy/term2/marketplace/src/everybody-fitness/path/ruby/2.7.0/gems/unf_ext-0.0.7.7/ext/unf_ext
+make DESTDIR\=
+compiling unf.cc
+linking shared-object unf_ext.so
+
+current directory: /mnt/c/users/brian/documents/coder-academy/term2/marketplace/src/everybody-fitness/path/ruby/2.7.0/gems/unf_ext-0.0.7.7/ext/unf_ext
+make DESTDIR\= install
+/usr/bin/install -m 0755 unf_ext.so ./.gem.20210310-19197-t8syk7
