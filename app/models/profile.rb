@@ -1,7 +1,7 @@
 class Profile < ApplicationRecord
   belongs_to :user
-  has_many :experiences
-  has_many :specialties
+  has_many :experiences, dependent: :destroy
+  has_many :specialties, dependent: :destroy
   has_one_attached :photo
 
   self.inheritance_column = "not_sti"
