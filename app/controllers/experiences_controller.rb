@@ -23,6 +23,9 @@ class ExperiencesController < ApplicationController
   # POST /experiences or /experiences.json
   def create
     @experience = Experience.new(experience_params)
+    @user_id = current_user.id.to_i
+    @profile = Profile.find_by_user_id(@user_id)
+    @experience.profile_id = @profile.id
 
     respond_to do |format|
       if @experience.save

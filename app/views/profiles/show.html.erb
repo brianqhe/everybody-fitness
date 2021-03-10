@@ -41,6 +41,21 @@
   <%= @profile.user_id %>
 </p>
 
+<p>
+  <strong>Experiences:</strong>
+  <% @profile_experiences = Experience.where(profile_id: @profile.id) %>
+  <% if @profile_experiences.empty? %>
+    N/A
+  <% else %>
+    <% @profile_experiences.each do |experiences| %>
+      <ul>
+        <%= experiences.description %>
+      </ul>
+    <% end %>
+  <% end %>
+
+</p>
+
 <%= link_to 'Edit', edit_profile_path(@profile) %> |
 <%= link_to 'Back', profiles_path %>
 <%= link_to 'Message', conversations_index_path(:conversation_id) %>
