@@ -1,6 +1,7 @@
 class ExperiencesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_experience, only: %i[ show edit update destroy ]
+  before_action :current_user 
 
   # GET /experiences or /experiences.json
   def index
@@ -18,6 +19,12 @@ class ExperiencesController < ApplicationController
 
   # GET /experiences/1/edit
   def edit
+    @user_id = current_user.id.to_i
+    @profile = Profile.find_by_user_id(@user_id)
+    @experience.profile_id = @profile.id
+    if current_user != @profile.user_id
+      redirect_to error_path
+    end
   end
 
   # POST /experiences or /experiences.json

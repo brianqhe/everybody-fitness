@@ -30,8 +30,14 @@
         <td><%= profile.city %></td>
         <td><%= profile.biography %></td>
         <td><%= link_to 'Show', profile %></td>
-        <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
-        <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user != profile.user %>
+        <% else %>
+          <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
+        <% end %>
+        <% if current_user != profile.user %>
+        <% else %>
+          <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
