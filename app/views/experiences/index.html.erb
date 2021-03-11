@@ -10,6 +10,10 @@
     </tr>
   </thead>
 
+  <% @user_id = current_user.id.to_i %>
+  <% @profile = Profile.find_by_user_id(@user_id) %>
+  <% @experiences = Experience.where(profile_id: @profile.id) %>
+
   <tbody>
     <% @experiences.each do |experience| %>
       <tr>
@@ -25,3 +29,4 @@
 <br>
 
 <%= link_to 'New Experience', new_experience_path %>
+<%= link_to 'Back', profiles_path %>
