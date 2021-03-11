@@ -33,7 +33,16 @@
 
 <p>
   <strong>Specialty:</strong>
-  <%= @profile.specialty %>
+  <% @profile_specialties = Specialty.where(profile_id: @profile.id) %>
+  <% if @profile_specialties.empty? %>
+    N/A
+  <% else %>
+    <% @profile_specialties.each do |specialties| %>
+      <ul>
+        <%= specialties.description %>
+      </ul>
+    <% end %>
+  <% end %>
 </p>
 
 <p>

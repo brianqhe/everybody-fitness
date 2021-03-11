@@ -4,6 +4,8 @@ class Profile < ApplicationRecord
   has_many :specialties, dependent: :destroy
   has_one_attached :photo
 
+  accepts_nested_attributes_for :specialties
+
   self.inheritance_column = "not_sti"
 
   def self.search(search)
