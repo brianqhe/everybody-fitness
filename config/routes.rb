@@ -10,6 +10,12 @@ Rails.application.routes.draw do
   end
   devise_for :users
   root 'home#index'
+  get '/categories', to: 'categories#index'
+  get '/categories/boxing', to: 'categories#boxing'
+  get '/categories/yoga', to: 'categories#yoga'
+  get '/categories/cardio', to: 'categories#cardio'
+  get '/categories/weights', to: 'categories#weights'
+
   get '/about', to: 'home#about'
   get '/error', to: 'profiles#error'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

@@ -22,7 +22,7 @@ class ExperiencesController < ApplicationController
     @user_id = current_user.id.to_i
     @profile = Profile.find_by_user_id(@user_id)
     @experience.profile_id = @profile.id
-    if current_user != @profile.user_id
+    if current_user.id != @profile.user_id
       redirect_to error_path
     end
   end
