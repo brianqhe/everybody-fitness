@@ -15,8 +15,12 @@ These are the yoga trainers
   </thead>
 
   <tbody>
-    <% @profiles = Profile.all %>
-    <% @result = Profile.search(params[:search]) %>
+    <% @yoga = ProfilesSpecialty.where(specialty_id: 28) %>
+    <% @yoga_profiles_id = [] %>
+    <% @yoga.each do | id | %>
+        <% @yoga_profiles_id.push(id.profile_id)%>
+    <% end %>
+    <% @result = Profile.where(id: @yoga_profiles_id) %>
     <% @result.each do |profile| %>
       <tr>
         <td><%= profile.first_name %></td>

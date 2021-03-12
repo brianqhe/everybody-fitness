@@ -15,8 +15,12 @@ These are the boxing trainers
   </thead>
 
   <tbody>
-    <% @profiles = Profile.all %>
-    <% @result = Profile.search(params[:search]) %>
+    <% @boxing = ProfilesSpecialty.where(specialty_id: 27) %>
+    <% @boxing_profiles_id = [] %>
+    <% @boxing.each do | id | %>
+        <% @boxing_profiles_id.push(id.profile_id)%>
+    <% end %>
+    <% @result = Profile.where(id: @boxing_profiles_id) %>
     <% @result.each do |profile| %>
       <tr>
         <td><%= profile.first_name %></td>

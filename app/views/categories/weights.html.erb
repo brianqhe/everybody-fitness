@@ -15,8 +15,12 @@ These are the weights trainers
   </thead>
 
   <tbody>
-    <% @profiles = Profile.all %>
-    <% @result = Profile.search(params[:search]) %>
+    <% @weights = ProfilesSpecialty.where(specialty_id: 29) %>
+    <% @weights_profiles_id = [] %>
+    <% @weights.each do | id | %>
+        <% @weights_profiles_id.push(id.profile_id)%>
+    <% end %>
+    <% @result = Profile.where(id: @weights_profiles_id) %>
     <% @result.each do |profile| %>
       <tr>
         <td><%= profile.first_name %></td>
