@@ -10,14 +10,14 @@ class SearchesController < ApplicationController
     end
 
     def create
-        @search = Profile.create(search_params)
+        @search = Search.create(search_params)
         redirect_to @search
     end 
 
     private
 
     def search_params
-        params.require(:search).permit(:first_name, :last_name, :sex, :city, :biography, :user_id, :photo)
+        params.require(:search).permit(:first_name, :sex, :city)
     end 
 
 end
