@@ -15,15 +15,24 @@
         <%= link_to "Search", profiles_path, class: "nav-link active" %>
       </li>
       <li class="nav-item">
-        <%# <% if Profile.find_by(user_id: current_user.id) %>
-          <%# <%= link_to "Edit Listing", edit_profile_path(user_id: current_user.id), class: "nav-link active" %>
-        <%# <% else %>
           <%= link_to "Create Profile", new_profile_path, class: "nav-link active" %>
-        <%# <% end %>
       </li>
-      <li class="nav-item">
-        <%= link_to "Category", categories_path, class: "nav-link active" %>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Categories
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to "Boxing", categories_boxing_path, class: "dropdown-item" %>
+          <div class="dropdown-divider"></div>
+          <%= link_to "Yoga", categories_yoga_path, class: "dropdown-item" %>
+          <div class="dropdown-divider"></div>
+          <%= link_to "Cardio", categories_cardio_path, class: "dropdown-item" %>
+          <div class="dropdown-divider"></div>
+          <%= link_to "Weights", categories_weights_path, class: "dropdown-item" %>
+        </div>
       </li>
+
       <li class="nav-item">
         <% if user_signed_in? %>
             <%# logout button (only show when logged in) %>
