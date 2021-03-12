@@ -1,3 +1,4 @@
 class Specialty < ApplicationRecord
-  belongs_to :profile
+  has_many :profiles_specialties
+  has_many :profiles, through: :profiles_specialties
 end

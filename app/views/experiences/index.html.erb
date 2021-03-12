@@ -19,8 +19,14 @@
       <tr>
         <td><%= experience.description %></td>
         <td><%= link_to 'Show', experience %></td>
-        <td><%= link_to 'Edit', edit_experience_path(experience) %></td>
-        <td><%= link_to 'Destroy', experience, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user.id != @profile.user_id %>
+        <% else %>
+          <td><%= link_to 'Edit', edit_experience_path(experience) %></td>
+        <% end %>
+        <% if current_user.id != @profile.user_id %>
+        <% else %>
+          <td><%= link_to 'Destroy', experience, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

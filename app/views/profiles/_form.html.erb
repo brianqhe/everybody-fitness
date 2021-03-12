@@ -9,13 +9,18 @@
     <%= f.input :sex, required: true, autofocus: true, collection: [['Male', 'Male'], ['Female', 'Female']] %>
     <%= f.input :city, required: true, autofocus: true, collection: [['Sydney', 'Sydney'], ['Melbourne', 'Melbourne'], ['Brisbane', 'Brisbane'], ['Canberra', 'Canberra'], ['Adelaide', 'Adelaide'], ['Perth', 'Perth']] %>
     <%= f.input :biography, required: true, autofocus: true %>
-    <%= f.input :specialty, autofocus: true, as: :check_boxes, collection: [ ['Yoga', 'Yoga'], ['Boxing', 'Boxing'], ['Personal Training', 'Personal Training']] %>
+    <%= f.collection_check_boxes :specialty_ids, Specialty.all, :id, :description %> <br>
     <%= f.file_field :photo %>
   </div>
 
+
+  <% if @profile.persisted? %>
   <div class="form-inputs">
     <%= link_to "Edit/Add Experience", experiences_path %>
   </div>
+  <% end %>
+
+
 
   <div class="form-actions">
     <%= f.button :submit %>
