@@ -15,8 +15,12 @@ These are the cardio trainers
   </thead>
 
   <tbody>
-    <% @profiles = Profile.all %>
-    <% @result = Profile.search(params[:search]) %>
+    <% @cardio = ProfilesSpecialty.where(specialty_id: 30) %>
+    <% @cardio_profiles_id = [] %>
+    <% @cardio.each do | id | %>
+        <% @cardio_profiles_id.push(id.profile_id)%>
+    <% end %>
+    <% @result = Profile.where(id: @cardio_profiles_id) %>
     <% @result.each do |profile| %>
       <tr>
         <td><%= profile.first_name %></td>
