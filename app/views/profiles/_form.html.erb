@@ -9,7 +9,9 @@
     <%= f.input :sex, required: true, autofocus: true, collection: [['Male', 'Male'], ['Female', 'Female']] %>
     <%= f.input :city, required: true, autofocus: true, collection: [['Sydney', 'Sydney'], ['Melbourne', 'Melbourne'], ['Brisbane', 'Brisbane'], ['Canberra', 'Canberra'], ['Adelaide', 'Adelaide'], ['Perth', 'Perth']] %>
     <%= f.input :biography, required: true, autofocus: true %>
+    Specialties <br>
     <%= f.collection_check_boxes :specialty_ids, Specialty.all, :id, :description %> <br>
+    <br>
     <%= f.file_field :photo %>
   </div>
 
