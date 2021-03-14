@@ -1,4 +1,5 @@
 class Specialty < ApplicationRecord
-  has_many :profiles_specialties
-  has_many :profiles, through: :profiles_specialties
+    # Has many through association for specialty model
+    has_many :profiles_specialties
+    has_many :profiles, through: :profiles_specialties
 end
