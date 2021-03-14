@@ -1,5 +1,11 @@
 # README
 
+## Installation / Running
+
+--- 
+
+Download Rails
+
 ## Problem being solved and why it needs solving
 ---
 
@@ -33,14 +39,35 @@ The purpose of the application is to serve as a two-way platform for trainers to
 
 ### Functionality / features
 
+
+
 ### Sitemap
+
+![Application Sitemap](app/assets/images/sitemap-marketplace.png)
 
 ### Screenshots
 
 ### Target audience
 
+The target audience of the web application are personal trainers who seek to grow their client base
+
+The other side of the target audience in this two way marketplace application are the prospective users who want to find a trainer to achieve their fitness goals under the guidance of an experienced trainer.
+
 ### Tech stack (e.g. html, css, deployment platform, etc)
 
+- Ruby on Rails was the application framework utilised to provide the default structures for the database, web service and web pages
+
+- PostgreSQL was the database management system used for storing, editting and creating relations for the application
+
+- HTML5 was used as the markup language for the website
+
+- CSS3 was used as the stylesheet for the styles in the website
+
+- SASS was used as the preprocessor to compile the CSS stylesheet
+
+- Heroku was used as the deployment platform, a free third party deployment web application.
+
+- Balsamiq was used at the Wireframe creation tool for the design and repsonsive design tool
 
 ## User Stories
 --- 

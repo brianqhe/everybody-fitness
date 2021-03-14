@@ -16,7 +16,6 @@ Rails.application.routes.draw do
   get '/categories/cardio', to: 'categories#cardio'
   get '/categories/weights', to: 'categories#weights'
 
-  get '/about', to: 'home#about'
   get '/error', to: 'profiles#error'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
