@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Profiles</h1>
+<div class="search-content">
+    <h1>Welcome to Everybody Fitness</h1>
+</div>
+<div class="search-content">
+    <h3>The hub for personal training</h3>
+</div>
 
 <%= form_with(url: '/profiles', method: 'get', local: true) do %>
   <%= text_field_tag(:search) %>
@@ -9,40 +14,54 @@
 
 <%= link_to "Advanced Search", new_search_path %>
 
-<table>
-  <thead>
-    <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Sex</th>
-      <th>City</th>
-      <th>Biography</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <div class="profile-content">
+                <% @result.each do |profile| %>
+        <div class="profile-tile">
 
-  <tbody>
-    <% @result.each do |profile| %>
-      <tr>
-        <td><%= profile.first_name %></td>
-        <td><%= profile.last_name %></td>
-        <td><%= profile.sex %></td>
-        <td><%= profile.city %></td>
-        <td><%= profile.biography %></td>
-        <td><%= link_to 'Show', profile %></td>
-        <% if current_user != profile.user %>
-        <% else %>
-          <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
-        <% end %>
-        <% if current_user != profile.user %>
-        <% else %>
-          <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+          <div class="card shadow-sm">
+            <% if profile.photo.attached? %>
+            <p>
+              <%= image_tag profile.photo, alt: "profile-photo", class: "bd-placeholder-img card-img-top" %>
+            </p>
+            <% else %>
+              <%= image_tag "profile-placeholder.jpg", alt: "placeholder-image", class: "bd-placeholder-img card-img-top" %>
+            <% end %>
+            <div class="card-body">
+              <h2 class="display-5">
+                <%= profile.first_name + " " + profile.last_name %>
+              </h2>
+              <p class="card-text">
+                <%= profile.biography %> 
+              </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">
+                    <%= link_to 'View', profile %>
+                  </button>
+                  <% if current_user != profile.user %>
+                  <% else %>
+                    <button type="button" class="btn btn-sm btn-outline-secondary">
+                      <%= link_to 'Edit', edit_profile_path(profile) %>
+                    </button>
+                  <% end %>
+                  <% if current_user != profile.user %>
+                  <% else %>
+                    <button type="button" class="btn btn-sm btn-outline-secondary">
+                      <%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    </button>
+                  <% end %>
+                </div>
+                <small class="text-muted">
+                  <%= profile.city %> |
+                  <%= profile.sex %>
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+          <% end %>
+      </div>
 
-<br>
+<%# <%= link_to 'New Profile', new_profile_path %>
 
-<%= link_to 'New Profile', new_profile_path %>
+

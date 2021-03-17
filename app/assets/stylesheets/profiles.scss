@@ -1,3 +1,71 @@
 // Place all the styles related to the Profiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+// Used flexbox to make the image and word content to flex in a row
+.front-page-content {
+    display: flex;
+    flex-direction: row;
+    // Aligned the items to be in the center of the div
+    align-items: center;
+}
+
+// Adjusted the size of the front page photo container to take up 50% of the page width
+#front-page-photo {
+    width: 50%;
+    // Allocated a margin to move content further away from edge of page
+    margin: 20px;
+}
+
+// Adjusted photo size relative to the size of the container
+#home-photo {
+    width: 100%;
+    height: 70%;
+    // Adjusted border radius to have a circle shaped photo
+    border-radius: 50%;
+}
+
+// Changed font size of all word content in home page
+#introduction-content {
+    font-size: 20px;
+    // Added padding to bring words away from edge of screen and photo
+    padding: 30px;
+}
+
+// Used flexbox to make the flex-direction of the skills icons and introduction content to be column
+#front-page-introduction {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+// Used flexbox to <main> content flex in a column for a sticky footer
+#home-page-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blog-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+// Changed max-width of blog post to take up 90% of the screen width
+.profile-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // Made the maximum width of each container to be 40%
+    max-width: 30%;
+    // Justify the content so that all contents are in the center
+    justify-content: center;
+    // Added margin so that none of the blog posts are too close to one another
+    margin: 30px;
+}
