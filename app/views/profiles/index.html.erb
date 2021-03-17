@@ -1,18 +1,22 @@
 <p id="notice"><%= notice %></p>
 
 <div class="search-content">
-    <h1>Welcome to Everybody Fitness</h1>
+    <h1 class="title">Welcome to Everybody Fitness</h1>
 </div>
 <div class="search-content">
-    <h3>The hub for personal training</h3>
+    <h3 class="subheading">The hub for personal training</h3>
 </div>
 
-<%= form_with(url: '/profiles', method: 'get', local: true) do %>
-  <%= text_field_tag(:search) %>
-  <%= submit_tag("Search") %>
-<% end %>
+<div class="search-bar">
+  <%= form_with(url: '/profiles', method: 'get', local: true) do %>
+    <%= text_field_tag(:search) %>
+    <%= submit_tag("Search") %>
+  <% end %>
 
-<%= link_to "Advanced Search", new_search_path %>
+  <%= link_to "Advanced Search", new_search_path %>
+</div>
+
+
 
     <div class="profile-content">
                 <% @result.each do |profile| %>
@@ -31,7 +35,21 @@
                 <%= profile.first_name + " " + profile.last_name %>
               </h2>
               <p class="card-text">
-                <%= profile.biography %> 
+                <% if profile.biography.empty? %>
+                  <br>
+                  <br>
+                  <br>
+                <% elsif profile.biography.length > 5 && profile.biography.length < 150 %>
+                    <%= profile.biography[0..199] %>
+                    <br>
+                    <br>
+                    <br>
+                <% elsif profile.biography.length > 150 %>
+                  <%= profile.biography[0..149] %>...
+                <% else %>
+                  <%= profile.biography %>
+                <% end %>
+
               </p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">

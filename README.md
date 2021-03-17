@@ -200,5 +200,5 @@ A screenshot and link to the Trello project management board is as follows -
 
 [https://trello.com/b/hObJsQdl](https://trello.com/b/hObJsQdl)
 
-![Trello Project Management Screenshot](app/assets/images/TrelloBoard.png)
+![Trello Project Management Screenshot](app/assets/images/TrelloBoard.PNG)
 
