@@ -65,15 +65,22 @@
                 <% end %>
               <% end %>
             </p>
+            <% if current_user != @profile.user %>
+            <% else %>
+              <button type="button" class="btn btn-sm btn-outline-secondary">
+                <%= link_to 'Edit', edit_profile_path(@profile) %>
+              </button>
+            <% end %>
             <button type="button" class="btn btn-sm btn-outline-secondary">
-            <%= link_to 'Edit', edit_profile_path(@profile) %> |
+            <%= link_to 'Back', profiles_path %>
             </button>
+            <% if current_user == @profile.user %>
+            <% else %>
             <button type="button" class="btn btn-sm btn-outline-secondary">
-            <%= link_to 'Back', profiles_path %> |
+              <% @users = User.where.not(id: current_user.id) %>
+                <%= link_to "Message", conversations_path(sender_id: current_user.id, receiver_id: @profile.user_id), method: :post %>
             </button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">
-            <%= link_to 'Message', conversations_index_path(:conversation_id) %>
-            </button>
+            <% end %>
           </div>
       </div>
   </div>

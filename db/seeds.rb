@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# Seeds to create pre-populated specialties, free from user manipulation
 Specialty.create(description: 'Boxing')
 Specialty.create(description: 'Yoga')
 Specialty.create(description: 'Strength')

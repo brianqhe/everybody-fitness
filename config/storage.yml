@@ -6,6 +6,7 @@ local:
   service: Disk
   root: <%= Rails.root.join("storage") %>
 
+# Cloudinary api keys that have been encrypted with the master key. 
 cloudinary: 
   service: Cloudinary
   cloud_name: <%= Rails.application.credentials.dig(:cloudinary, :cloud_name) %>
