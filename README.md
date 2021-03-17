@@ -39,7 +39,21 @@ The purpose of the application is to serve as a two-way platform for trainers to
 
 ### Functionality / features
 
+- User authentication is ensure such that users are required to log in and enter their password
 
+- User authorisation has been designed into the application such that users can only access certain pages and other pages are restricted access. For example users can only edit or destroy their own profiles, cannot enter the inbox of another user and cannot view another users inbox. 
+
+- There is image uploading capability for a user when creating their own profile. Images are stored on the cloud-based server Cloudinary
+
+- Users can create their own profiles that will include a personalised image, biography and relevant experience/qualifications. These can be editted by the user once logged in at any time.
+
+- Users are able to search for a trainers name in the basic search function. An advanced search function has also been implemented into the app, that allows the user to filter and search for specific profiles catered to their preferences.
+
+- The application features the use of a summarised search of trainers within a certain specialty, e.g. boxing coaches through the use of the dropdown in the navigation bar. 
+
+- Users are able to message one another through the use of a messaging system that will display in their inbox. 
+
+- The application has a responsive navigation bar that will change depending on whether the user is logged in or logged out.
 
 ### Sitemap
 
@@ -92,6 +106,9 @@ As a user, I want to easily message and contact a potential trainer so I can sta
 ## Entity Relationship Diagram
 ---
 
+![Application Entity Relationship Diagram](app/assets/images/ERD.png)
+
+
 ## High Level Abstractions
 ---
 
@@ -104,10 +121,40 @@ Devise
 
 Cloudinary
 
-
+Heroku
 
 ## Models / ActiveRecord Associations
 ---
+
+The application makes use of 8 models in total. 
+
+These models are - 
+
+- Users
+- Profiles
+- Specialties
+- ProfilesSpecialties
+- Experiences
+- Messages
+- Conversations
+- Searches
+
+**Users and Profiles ActiveRecord Association**
+
+Within the application, it is designed such that a user can only set up one profile on the application, so that a user doesn't create an excessive amount of profiles for themselves. In ActiveRecord Association terms, the Profiles model belongs to the User model, and the User model has one Profile. 
+
+**Profiles, Specialties and ProfilesSpecialties ActiveRecord Association** 
+
+**Profiles and Experiences ActiveRecord Association**
+
+**Users, Messages and Conversations ActiveRecord Association** 
+
+**Searches Model**
+
+
+
+
+
 
 ## Database Relations
 ---

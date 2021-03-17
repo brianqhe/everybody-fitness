@@ -1,3 +1,61 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+$about-position:absolute;
+
+// Made titles for each about-me section to be absolute, so that it would position in the center of the corresponding image
+.about-me-title1,
+.about-me-title2,
+.about-me-title3 {
+    // Used keyframe in case I wanted to change position of words over image
+    position: $about-position
+}
+
+// Changed font style, size, and text shadow for words on top of image
+.about-me-header {
+    font-family: 'Kaushan Script', cursive;
+    font-size: 80px;
+    color: white;
+    text-shadow: 1px 1px 0px black, 4px 4px 0px rgba(0, 0, 0, 0.15);
+}
+
+// Used flexbox to make all content justfiy and align in the center
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+// Adjusted the size of the photo such that the width takes up the entire screen
+.about-content-photo {
+    max-width: 100%;
+    height: auto;
+}
+
+// Made the opacity of the photos be 50% and take 2 seconds to transition when they are hovered over
+.about-content-photo:hover {
+    opacity: 50%;
+    transition: 2s;
+}
+
+.home-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 479px) {
+    // Adjusted font size of about-me title
+    .about-me-header {
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 1023px) and (min-width: 479px) {
+    // Adjusted opacity of photo for this device type
+    .about-content-photo {
+        opacity: 70%;
+    }
+}

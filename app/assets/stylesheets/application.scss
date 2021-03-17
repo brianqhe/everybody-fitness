@@ -14,3 +14,43 @@
  *= require_self
  */
 @import "bootstrap";
+
+// Adjusted scrollbar width
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+// Adjusted scrollbar tracking color
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+// Adjusted background color of scrollbar thumb and radius
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 30px;
+}
+
+// Adjusted scrollbar color when hovered
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+body {
+    background-color: lightgray;
+    min-height: 100vh;
+}
+
+// allocate font for website to Open Sans
+p,
+a,
+h1,
+h2,
+h3,
+h4,
+label,
+textarea,
+input,
+button {
+    font-family: 'Open Sans', sans-serif;
+}
