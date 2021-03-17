@@ -5,23 +5,30 @@ class ExperiencesController < ApplicationController
 
   # GET /experiences or /experiences.json
   def index
+    # Set the index to be all experiences
     @experiences = Experience.all
   end
 
   # GET /experiences/1 or /experiences/1.json
   def show
+    # route to show.html.erb for experiences
   end
 
   # GET /experiences/new
   def new
+    # Instance variable for the new Experience being created
     @experience = Experience.new
   end
 
   # GET /experiences/1/edit
   def edit
+    # Set the user_id to be the current user id
     @user_id = current_user.id.to_i
+    # Find the profile that has the current user id as its user_id
     @profile = Profile.find_by_user_id(@user_id)
+    # Set the profile_id for the found profile so that the foreign key can be set
     @experience.profile_id = @profile.id
+    # Restrict access for someone to edit an experience listing that isn't their own
     if current_user.id != @profile.user_id
       redirect_to error_path
     end
@@ -30,8 +37,11 @@ class ExperiencesController < ApplicationController
   # POST /experiences or /experiences.json
   def create
     @experience = Experience.new(experience_params)
+    # Set the user_id to be the current user id
     @user_id = current_user.id.to_i
+    # Find the profile that has the current user id as its user_id
     @profile = Profile.find_by_user_id(@user_id)
+    # Restrict access for someone to edit an experience listing that isn't their own
     @experience.profile_id = @profile.id
 
     respond_to do |format|
@@ -75,6 +85,7 @@ class ExperiencesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def experience_params
+      # set permitted params for the experiences controller
       params.require(:experience).permit(:description, :profile_id)
     end
 end
