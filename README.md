@@ -4,7 +4,25 @@
 
 --- 
 
-Download Rails
+Make a fork of this repo on [https://github.com/brianqhe/everybody-fitness](https://github.com/brianqhe/everybody-fitness)
+
+Clone your fork to your local development environment
+
+Run `git clone git@github.com:brianqhe/everybody-fitness.git`
+
+Change into the directory where you cloned the repo
+
+Install dependencies and gems `bundle install`
+
+Check node dependencies `yarn install --check-files`
+
+Create the database `rails db:create`
+
+Migrate the local database `rails db:migrate`
+
+Run the relevant seeds of the database `rails db:seed`
+
+Run `rails s`
 
 ## Problem being solved and why it needs solving
 ---
@@ -83,6 +101,10 @@ The other side of the target audience in this two way marketplace application ar
 
 - Balsamiq was used at the Wireframe creation tool for the design and repsonsive design tool
 
+- Boostrap was used for a lot of the styling for the application
+
+- Cloudinary was used as the cloud based image and video management service
+
 ## User Stories
 --- 
 
@@ -98,10 +120,10 @@ As an endurance athlete, I want to search for a specialist trainer so I can perf
 
 As a user, I want to easily message and contact a potential trainer so I can start training sooner to achieve my fitness goals.
 
-
-
 ## Wireframes
 ---
+
+
 
 ## Entity Relationship Diagram
 ---
@@ -109,8 +131,10 @@ As a user, I want to easily message and contact a potential trainer so I can sta
 ![Application Entity Relationship Diagram](app/assets/images/ERD.png)
 
 
-## High Level Abstractions
+## High Level Components / Abstractions
 ---
+
+On a high level 
 
 ## Third Party Services
 ---
@@ -159,8 +183,7 @@ Within the application, it is designed such that a user can only set up one prof
 ## Database Relations
 ---
 
-## Database Schema Design
----
+
 
 ## Task Allocation
 ---
