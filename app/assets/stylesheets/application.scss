@@ -36,6 +36,7 @@
     background: #555;
 }
 
+// Set background colour and minimum height of body html tags to be light gray
 body {
     background-color: lightgray;
     min-height: 100vh;
@@ -56,6 +57,7 @@ button {
 }
 
 
+// Allocated all devise form components to have a margin of 20 pixels
 .form-signin,
 .form-inputs,
 .form-actions,
@@ -63,10 +65,12 @@ button {
     margin: 20px;
 }
 
+// Set heading 2 for devise headers to have a left margin
 h2 {
     margin-left: 20px;
 }
 
+// Set devise form actions to have a border and be justified to the center
 .form-actions {
     border: 2px solid black;
     width: 150px;

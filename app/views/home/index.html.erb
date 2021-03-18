@@ -1,35 +1,45 @@
 <p id="notice"><%= notice %></p>
 
+<%# Home page images that have text overlay %>
 <div class="home-container">
     <div>
+    <%# Image tag to show locally stored image %>
         <%= image_tag "home-image.jpg", class: "home-photo", alt: "woman-stretching" %>
         </div>
     <div class="home-title1">
+    <%# Header that is shown overlayed over text with CSS %>
         <h2 class="home-header">Welcome to Everybody Fitness</h2>
     </div>
 </div>
 <div class="home-container">
     <div>
+        <%# Image tag to show locally stored image %>
         <%= image_tag "home-image4.jpg", class: "home-photo", alt: "woman-squatting" %>
         </div>
     <div class="home-title2">
+        <%# Header that is shown overlayed over text with CSS %>
         <h2 class="home-header">Discover your potential</h2>
     </div>
 </div>
 <div class="home-container">
     <div>
+        <%# Image tag to show locally stored image %>
         <%= image_tag "home-image3.jpg", class: "home-photo", alt: "woman-doing-dumbell-row" %>
         </div>
     <div class="home-title3">
+        <%# Header that is shown overlayed over text with CSS %>
         <h2 class="home-header">Find your trainer now</h2>
     </div>
 </div>
 
+<%# Carousel for images using Bootstrap styling %>
 <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
+    <%# Image tag to locally stored image %>
         <%= image_tag "home-image5.jpg", class: "d-block w-100", alt: "woman-stretching" %>
         <div class="carousel-caption d-none d-md-block">
+        <%# Header for text overlay %>
             <h5 class="home-header">Different trainers to meet your every need</h5>
         </div>
     </div>

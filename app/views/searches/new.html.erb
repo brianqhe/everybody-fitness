@@ -1,16 +1,22 @@
 <h1>Advanced Search</h1>
 
+<%# Form that allows a user to perform their advanced search %>
 <%= form_with model: @search do |f| %>
+<%# Text field input for search of a trainers first name %>
     <%= f.label :first_name %>
     <%= f.text_field :first_name %>
 
+<%# Field for selection of all available city locations %>
     <%= f.label :city %>
     <%= f.select :city, options_for_select(@cities), include_blank: true %><br>
 
+<%# Field for selection of all currently selectable genders %>
     <%= f.label :sex %>
     <%= f.select :sex, options_for_select(@sexes), include_blank: true %><br><br>
 
+<%# Button to submit the search %>
     <%= f.submit "Search" %>
 <% end %>
 
+<%# Link to go back to the profile page %>
 <p><%= link_to "Back", '/profiles' %></p>

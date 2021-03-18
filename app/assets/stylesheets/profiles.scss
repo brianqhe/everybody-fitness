@@ -67,55 +67,64 @@ p {
     margin: 30px;
 }
 
+// Set the height for profile photos to be a set height
 .profile-photo {
     height: 400px;
 }
 
+// Wrapped the profile content through flexbox
 .profile-content {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
+// Added margins to the search bar
 .search-bar {
     margin-left: 30px;
     margin-top: 50px;
 }
 
+// Responsive design to different screen size
 @media screen and (max-width: 1023px) and (min-width: 479px) {
+    // Changed title size of profiles
     .title {
         font-size: 30px;
     }
+    // Changed subheading font size
     .subheading {
         font-size: 25px
     }
-    .search-bar {
-        margin-left: 30px;
-        margin-top: 50px;
-    }
+    // Changed the sizing and margins of each profile tile
     .profile-tile {
         max-width: 40%;
         height: 500px;
         // Added margin so that none of the blog posts are too close to one another
         margin: 15px;
     }
+    // Changed the layout of the show profile page between desktop view
     .show-page-photo {
         width: 80%;
     }
+    // Changed the height of the profile photo in tablet view
     .profile-photo {
         height: 200px;
     }
+    // Changed profile name to smaller font for responsive design
     .profile-name {
         font-size: 20px;
     }
+    // Changed the layout of the show profile page between desktop view
     .show-page-introduction {
         width: 80%;
     }
+    // Changed the show page to wrap its contents instead of showing side by side in desktop
     .show-page-content {
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
     }
+    // Changed the show page to flex in columns through flexbox and justify in the center
     .show-content {
         display:flex; 
         flex-direction: column;
@@ -124,37 +133,46 @@ p {
 }
 
 @media screen and (max-width: 479px) {
+    // Changed title size of profiles
     .title {
         font-size: 20px;
     }
+    // Changed subheading font size for phone
     .subheading {
         font-size: 15px;
     }
+    // Changed the sizing and margins of each profile tile
     .profile-tile {
         max-width: 80%;
         height: 400px;
         // Added margin so that none of the blog posts are too close to one another
         margin: 15px;
     }
+    // Changed the layout of the show profile page between desktop view
     .profile-photo {
         height: 200px;
     }
+    // Changed the layout of the show profile page between desktop view
     .show-page-photo {
         width: 80%;
     }
+    // Changed the layout of the show profile page between desktop view
     .show-page-introduction {
         width: 80%;
     }
+    // Changed the show page to wrap its contents instead of showing side by side in desktop
     .show-page-content {
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
     }
+    // Changed the show page to flex in columns through flexbox and justify in the center
     .show-content {
         display:flex; 
         flex-direction: column;
         justify-content: center;
     }
+    // Changed font size of the sex/location words on mobile
     .profile-filter {
         font-size: 12px;
     }

@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+// Keyframe to make the titles on top of images to have absolute position i.e. right on top of the image
 $about-position:absolute;
 
 // Made titles for each about-me section to be absolute, so that it would position in the center of the corresponding image
@@ -43,6 +44,7 @@ $about-position:absolute;
     transition: 2s;
 }
 
+// Used flexbox to make the content be in the middle and justified
 .home-content {
     display: flex;
     align-items: center;

@@ -1,25 +1,32 @@
 <h1>Conversation</h1>
 
+<%# Loop to display all the messages that have been created for a certain conversation %>
 <ul>
   <% @messages.each do |message| %>
     <% if message.body %>
       <li>
+      <%# Display the body of the message sent %>
         <h4><%= message.body %></h4>
+        <%# Display the email of the user that sent the message %>
         <p><%= message.user.email %></p>
+        <%# Display when the message was generated %>
         <p><%= message.created_at %></p>
       </li>
     <% end %>
   <% end %>
 </ul>
 
+<%# Form where a user can input their message to another user %>
 <%= form_for [@conversation, @message] do |f| %>
   <div class="field">
+  <%# Text area field with placeholder text so user understands what the field is for %>
     <%= f.text_area :body, placeholder: "Your message" %>
   </div>
-
+<%# Submit button for the message %>
     <%= f.submit "Send" %>
 <% end %>
 
+<%# Button to go back to all conversations %>
 <button type="button" class="btn btn-sm btn-outline-secondary">
   <%= link_to 'Back', conversations_path %>
 </button>

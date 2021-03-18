@@ -1,11 +1,14 @@
 <h1>Inbox</h1>
 <div class="inbox-container">
+<%# If statement that will display a certain message if no conversations have been started by the current user %>
   <% if @conversations.empty? %>
   <p>You haven't started any conversations yet!</p>
   <% end %>
+  <%# Loop to display all the current conversations that have active messages for the current user %>
   <% @conversations.each do |conversation| %>
     <div class="conversation">
       <%= link_to conversation.recipient(current_user).email, conversation_messages_path(conversation) %>
+      <%# If statement to display a number next to the conversation email if there are unread messages %>
         <% if !conversation.unread_message_count(current_user).zero? %>
         (<%= conversation.unread_message_count(current_user) %>)
       <% end %>
@@ -14,6 +17,7 @@
 <div>
 
 <%# Hidden code to temporarily hide the list of all users available to message %>
+<%# This code may be brought back in at a later stage %>
 <% if false %>
 <h2>Users</h2>
 <ul>
