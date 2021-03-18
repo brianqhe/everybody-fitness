@@ -1,35 +1,48 @@
 <p id="notice"><%= notice %></p>
 
-<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-
-<div class="home-content">
-    <h1>Welcome to Everybody Fitness</h1>
-</div>
-<div class="home-content">
-    <h3>The hub for personal training</h3>
-</div>
-
-<div class="about-container">
+<div class="home-container">
     <div>
-        <%= image_tag "home-image.jpg", class: "about-content-photo", alt: "woman-stretching" %>
+        <%= image_tag "home-image.jpg", class: "home-photo", alt: "woman-stretching" %>
         </div>
-    <div class="about-me-title1">
-        <h2 class="about-me-header">Welcome to Everybody Fitness</h2>
+    <div class="home-title1">
+        <h2 class="home-header">Welcome to Everybody Fitness</h2>
     </div>
 </div>
-<div class="about-container">
+<div class="home-container">
     <div>
-        <%= image_tag "home-image2.jpg", class: "about-content-photo", alt: "woman-doing-dumbell-row" %>
+        <%= image_tag "home-image4.jpg", class: "home-photo", alt: "woman-squatting" %>
         </div>
-    <div class="about-me-title1">
-        <h2 class="about-me-header">Discover your potential</h2>
+    <div class="home-title2">
+        <h2 class="home-header">Discover your potential</h2>
     </div>
 </div>
-<div class="about-container">
+<div class="home-container">
     <div>
-        <%= image_tag "home-image3.jpg", class: "about-content-photo", alt: "woman-doing-dumbell-row" %>
+        <%= image_tag "home-image3.jpg", class: "home-photo", alt: "woman-doing-dumbell-row" %>
         </div>
-    <div class="about-me-title1">
-        <h2 class="about-me-header">Find your trainer now</h2>
+    <div class="home-title3">
+        <h2 class="home-header">Find your trainer now</h2>
+    </div>
+</div>
+
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+        <%= image_tag "home-image5.jpg", class: "d-block w-100", alt: "woman-stretching" %>
+        <div class="carousel-caption d-none d-md-block">
+            <h5 class="home-header">Different trainers to meet your every need</h5>
+        </div>
+    </div>
+    <div class="carousel-item">
+        <%= image_tag "home-image6.jpg", class: "d-block w-100", alt: "woman-squatting" %>
+        <div class="carousel-caption d-none d-md-block">
+            <h5 class="home-header">Different trainers to meet your every need</h5>
+        </div>
+    </div>
+    <div class="carousel-item">
+        <%= image_tag "home-image7.jpg", class: "d-block w-100", alt: "woman-doing-dumbell-row" %>
+        <div class="carousel-caption d-none d-md-block">
+            <h5 class="home-header">Different trainers to meet your every need</h5>
+        </div>
     </div>
 </div>

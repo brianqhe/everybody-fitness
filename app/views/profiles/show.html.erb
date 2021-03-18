@@ -1,19 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <!-- Container to hold all front page content -->
-<main id="home-page-container">
-  <div class="front-page-content">
-      <div id="front-page-photo">
+<main class="show-page-container">
+  <div class="show-page-content">
+      <div class="show-page-photo">
         <% if @profile.photo.attached? %>
         <p>
-          <%= image_tag @profile.photo, alt: "profile-photo", id: "home-photo" %>
+          <%= image_tag @profile.photo, alt: "profile-photo", class: "display-photo" %>
         </p>
         <% else %>
-          <%= image_tag "profile-placeholder.jpg", alt: "placeholder-image", id: "home-photo" %>
+          <%= image_tag "profile-placeholder.jpg", alt: "placeholder-image", class: "display-photo" %>
         <% end %>
       </div>
-      <div id="front-page-introduction">
-          <div id="introduction-content">
+      <div class="show-page-introduction">
+          <div class="show-content">
             <p>
               <strong>First name:</strong>
               <%= @profile.first_name %>
@@ -75,6 +75,10 @@
             <%= link_to 'Back', profiles_path %>
             </button>
             <% if current_user == @profile.user %>
+            <% elsif !user_signed_in? %>
+              <button type="button" class="btn btn-sm btn-outline-secondary">
+                <%= link_to "Message", user_session_path %>
+              </button>
             <% else %>
             <button type="button" class="btn btn-sm btn-outline-secondary">
               <% @users = User.where.not(id: current_user.id) %>

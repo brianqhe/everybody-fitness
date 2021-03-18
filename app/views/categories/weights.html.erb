@@ -1,45 +1,72 @@
-These are the weights trainers
+<p id="notice"><%= notice %></p>
 
-<h1>Profiles</h1>
+<div class="search-content">
+    <h1 class="title">Check out our weight trainers</h1>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Sex</th>
-      <th>City</th>
-      <th>Biography</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @weights = ProfilesSpecialty.where(specialty_id: 29) %>
-    <% @weights_profiles_id = [] %>
-    <% @weights.each do | id | %>
-        <% @weights_profiles_id.push(id.profile_id)%>
+    <div class="profile-content">
+    <% @boxing = ProfilesSpecialty.where(specialty_id: 29) %>
+    <% @boxing_profiles_id = [] %>
+    <% @boxing.each do | id | %>
+        <% @boxing_profiles_id.push(id.profile_id)%>
     <% end %>
-    <% @result = Profile.where(id: @weights_profiles_id) %>
+    <% @result = Profile.where(id: @boxing_profiles_id) %>
     <% @result.each do |profile| %>
-      <tr>
-        <td><%= profile.first_name %></td>
-        <td><%= profile.last_name %></td>
-        <td><%= profile.sex %></td>
-        <td><%= profile.city %></td>
-        <td><%= profile.biography %></td>
-        <td><%= link_to 'Show', profile %></td>
-        <% if current_user != profile.user %>
-        <% else %>
-          <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
-        <% end %>
-        <% if current_user != profile.user %>
-        <% else %>
-          <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <div class="profile-tile">
+          <div class="card shadow-sm">
+            <% if profile.photo.attached? %>
+            <p>
+              <%= image_tag profile.photo, alt: "profile-photo", class: "bd-placeholder-img card-img-top profile-photo"%>
+            </p>
+            <% else %>
+              <%= image_tag "profile-placeholder.jpg", alt: "placeholder-image", class: "bd-placeholder-img card-img-top profile-photo" %>
+            <% end %>
+            <div class="card-body">
+              <h2 class="display-5">
+                <%= profile.first_name + " " + profile.last_name %>
+              </h2>
+              <p class="card-text">
+                <% if profile.biography.empty? %>
+                  <br>
+                  <br>
+                  <br>
+                <% elsif profile.biography.length > 5 && profile.biography.length < 150 %>
+                    <%= profile.biography[0..199] %>
+                    <br>
+                    <br>
+                    <br>
+                <% elsif profile.biography.length > 150 %>
+                  <%= profile.biography[0..149] %>...
+                <% else %>
+                  <%= profile.biography %>
+                <% end %>
 
-<br>
+              </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">
+                    <%= link_to 'View', profile %>
+                  </button>
+                  <% if current_user != profile.user %>
+                  <% else %>
+                    <button type="button" class="btn btn-sm btn-outline-secondary">
+                      <%= link_to 'Edit', edit_profile_path(profile) %>
+                    </button>
+                  <% end %>
+                  <% if current_user != profile.user %>
+                  <% else %>
+                    <button type="button" class="btn btn-sm btn-outline-secondary">
+                      <%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    </button>
+                  <% end %>
+                </div>
+                <small class="text-muted profile-filter">
+                  <%= profile.city %> |
+                  <%= profile.sex %>
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+          <% end %>
+      </div>

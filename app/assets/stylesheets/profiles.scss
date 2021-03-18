@@ -2,8 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+p {
+    font-size: 40px;
+}
+
 // Used flexbox to make the image and word content to flex in a row
-.front-page-content {
+.show-page-content {
     display: flex;
     flex-direction: row;
     // Aligned the items to be in the center of the div
@@ -11,36 +15,34 @@
 }
 
 // Adjusted the size of the front page photo container to take up 50% of the page width
-#front-page-photo {
+.show-page-photo {
     width: 50%;
     // Allocated a margin to move content further away from edge of page
     margin: 20px;
 }
 
 // Adjusted photo size relative to the size of the container
-#home-photo {
+.display-photo {
     width: 100%;
     height: 70%;
-    // Adjusted border radius to have a circle shaped photo
-    border-radius: 50%;
 }
 
 // Changed font size of all word content in home page
-#introduction-content {
+.show-content {
     font-size: 20px;
     // Added padding to bring words away from edge of screen and photo
     padding: 30px;
 }
 
 // Used flexbox to make the flex-direction of the skills icons and introduction content to be column
-#front-page-introduction {
+.show-page-introduction {
     display: flex;
     flex-direction: column;
     width: 60%;
 }
 
 // Used flexbox to <main> content flex in a column for a sticky footer
-#home-page-container {
+.show-page-container {
     display: flex;
     flex-direction: column;
 }
@@ -63,6 +65,10 @@
     justify-content: center;
     // Added margin so that none of the blog posts are too close to one another
     margin: 30px;
+}
+
+.profile-photo {
+    height: 400px;
 }
 
 .profile-content {
@@ -89,9 +95,31 @@
     }
     .profile-tile {
         max-width: 40%;
-        height: 600px;
+        height: 500px;
         // Added margin so that none of the blog posts are too close to one another
         margin: 15px;
+    }
+    .show-page-photo {
+        width: 80%;
+    }
+    .profile-photo {
+        height: 200px;
+    }
+    .profile-name {
+        font-size: 20px;
+    }
+    .show-page-introduction {
+        width: 80%;
+    }
+    .show-page-content {
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+    .show-content {
+        display:flex; 
+        flex-direction: column;
+        justify-content: center;
     }
 }
 
@@ -107,5 +135,27 @@
         height: 400px;
         // Added margin so that none of the blog posts are too close to one another
         margin: 15px;
+    }
+    .profile-photo {
+        height: 200px;
+    }
+    .show-page-photo {
+        width: 80%;
+    }
+    .show-page-introduction {
+        width: 80%;
+    }
+    .show-page-content {
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+    .show-content {
+        display:flex; 
+        flex-direction: column;
+        justify-content: center;
+    }
+    .profile-filter {
+        font-size: 12px;
     }
 }
