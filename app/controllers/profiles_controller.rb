@@ -7,9 +7,9 @@ class ProfilesController < ApplicationController
   # GET /profiles or /profiles.json
   def index
     # Setting the instance variable for @profiles to come back with all profiles in the database
-    @profiles = Profile.all
+    @profiles = Profile.eager_load(:user)
     # Setting a instance variable @result that will bring back just the results of the search
-    @result = Profile.search(params[:search])
+    @result = Profile.eager_load(:user).search(params[:search])
   end
 
   # GET /profiles/1 or /profiles/1.json
