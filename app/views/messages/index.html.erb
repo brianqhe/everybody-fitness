@@ -1,10 +1,12 @@
+<h1>Conversation</h1>
+
 <ul>
   <% @messages.each do |message| %>
     <% if message.body %>
       <li>
-        <h4><%= message.user.email %></h4>
-        <p><%= message.body %></p>
-        <small><%= message.created_at %></small>
+        <h4><%= message.body %></h4>
+        <p><%= message.user.email %></p>
+        <p><%= message.created_at %></p>
       </li>
     <% end %>
   <% end %>
@@ -15,5 +17,9 @@
     <%= f.text_area :body, placeholder: "Your message" %>
   </div>
 
-  <%= f.submit "Send" %>
+    <%= f.submit "Send" %>
 <% end %>
+
+<button type="button" class="btn btn-sm btn-outline-secondary">
+  <%= link_to 'Back', conversations_path %>
+</button>

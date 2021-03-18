@@ -1,5 +1,8 @@
 <h1>Inbox</h1>
 <div class="inbox-container">
+  <% if @conversations.empty? %>
+  <p>You haven't started any conversations yet!</p>
+  <% end %>
   <% @conversations.each do |conversation| %>
     <div class="conversation">
       <%= link_to conversation.recipient(current_user).email, conversation_messages_path(conversation) %>
@@ -10,7 +13,7 @@
   <% end %>
 <div>
 
-<%# REMEMBER TO DO SOMETHING ABOUT THIS %>
+<%# Hidden code to temporarily hide the list of all users available to message %>
 <% if false %>
 <h2>Users</h2>
 <ul>

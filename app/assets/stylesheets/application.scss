@@ -54,3 +54,24 @@ input,
 button {
     font-family: 'Open Sans', sans-serif;
 }
+
+
+.form-signin,
+.form-inputs,
+.form-actions,
+.form-links {
+    margin: 20px;
+}
+
+h2 {
+    margin-left: 20px;
+}
+
+.form-actions {
+    border: 2px solid black;
+    width: 150px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

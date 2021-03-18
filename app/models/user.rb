@@ -4,7 +4,7 @@ class User < ApplicationRecord
 
   # Devise settings for how a user will interact when trying to log in/sign up or recover their passwords
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :timeoutable
 
   # One to one relationship, where a user can only have 1 profile
   has_one :profiles
