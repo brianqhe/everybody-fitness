@@ -6,7 +6,7 @@ class ExperiencesController < ApplicationController
   # GET /experiences or /experiences.json
   def index
     # Set the index to be all experiences
-    @experiences = Experience.all
+    @experiences = Experience.order(:description).eager_load(:profile)
   end
 
   # GET /experiences/1 or /experiences/1.json
