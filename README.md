@@ -123,6 +123,29 @@ As a user, I want to easily message and contact a potential trainer so I can sta
 ## Wireframes
 ---
 
+**Home Page**
+
+![Home Page Wireframe](app/assets/images/home.png)
+
+**Search Page** 
+![Home Page Wireframe](app/assets/images/search.png)
+
+
+**Create Profile** 
+![Home Page Wireframe](app/assets/images/create.png)
+
+
+**Inbox** 
+![Home Page Wireframe](app/assets/images/inbox.png)
+
+
+**Log In**
+![Home Page Wireframe](app/assets/images/login.png)
+
+
+**View Profile** 
+![Home Page Wireframe](app/assets/images/view.png)
+
 
 
 ## Entity Relationship Diagram
@@ -134,18 +157,27 @@ As a user, I want to easily message and contact a potential trainer so I can sta
 ## High Level Components / Abstractions
 ---
 
-On a high level 
+On a high level the web application is built on the Ruby on Rails framework that operates on a Model View Controller architecture which provides the basic and necessary features of a web application. 
+
+The Model is the component that contains the structure and relationships between the databases within the application. The View operates as the component that the end user will be seeing, often styled with CSS and HTML. The Controller contains the logic and functionality of the application, directing how the Model and View should operate when the user gives the website certain commands.
+
+When a user first goes on the application, the Routes component will direct the application to relevant Controller. The Controller will then process the relevant functions in the Model, and display the View page to the end user. 
+
+The application is deployed and hosted on the cloud based service, Heroku, which keeps the application on the Internet.
 
 ## Third Party Services
 ---
 
 The third party services used in the application include the following - 
 
-Devise
+Devise acts as as the authentication service for the application. Devise as a service provides functions such as allowing users to signup, login, confirm and change their passwords. 
 
-Cloudinary
+Cloudinary is a cloud based image and video management service that allows images to be uploaded by a user. The reason to use Cloudinary and not a local session storage or ActiveRecord is due to the storage capabilities available through a cloud-based management. Using Cloudinary will prevent storage from being over capacity on local storage. 
 
-Heroku
+Heroku is a cloud based deployment platform that allows the application to be deployed onto a URL on the Internet with relative ease. The platform is compatible with Github such that you can have continuous deployment and also have your source code be updated with your latest code. Heroku also allows the databases used in the application to be scalable with significant amounts of storage capabilities available through the platform.
+
+Bootstrap is a CSS and Javascript based framework that enables responsive web design for the application. The framework contains a large library of templates for navigation, forms and other user interface components. By importing and installing the Bootstrap gem, styling for the application has been made much more optimised for mobile-first development with a lot of styling classes already populated for easy use.
+
 
 ## Models / ActiveRecord Associations
 ---
@@ -169,21 +201,29 @@ Within the application, it is designed such that a user can only set up one prof
 
 **Profiles, Specialties and ProfilesSpecialties ActiveRecord Association** 
 
+The application is designed so that if a user wants to focus only on trainers with a certain specialty such as "Boxing" or "Yoga", they can filter for just those trainers with that specialty. Therefore a trainer Profile should have an ActiveRecord association of a has many Specialties, through a join table named ProfilesSpecialty. When a user creates their profile, they can select the checkboxes of specialties that are applicable to them. This in turn will update a join table on whether the specialty_id of that particular specialty has a record with the profile_id. If a profile_id is associated with a specialty_id in the join table, then that Profile will have that Specialty. The ProfilesSpecialty join table has the foreign keys referencing the profile_id and specialty_id for the Profile and Specialty models respectively. This is an example of the has_many :through ActiveRecord Association. 
+
 **Profiles and Experiences ActiveRecord Association**
+
+The application allows users to add Experiences or qualifications to their Profile for others to see. These experiences should be able to be created, editted and destroyed by the associated Profile user. The ActiveRecord Association is therefore a Profile has_many Experiences. The Experience model will have a foreign key reference to the Profile model through profile_id. This will allow ActiveRecord to select entries from the Experience model where the profile_id matches the current profile owners id. 
+
 
 **Users, Messages and Conversations ActiveRecord Association** 
 
+Within the application, users should be able to message prospective trainers to get further information or organise a potential session in the future. The models of the application therefore were structure with a Message model and a Conversations model. The models interact in the ActiveRecord Association through a combination of has_many and belongs_to associations. Conversations will have a foreign key association with Users, where there will be a recipient_id and sender_id which uses the user_id of the User. The Conversations model will also have_many messages depending on the conversation. The Messages model will belong to the User and Conversations model, as it will include the message description and conversation_id to determine which conversation the message belongs to. 
+
+
 **Searches Model**
 
-
-
-
+The Searches model is its own model that operates on a standalone basis. The Searches model is designed to store all the search parameters that have been inputted by the user on the web application. The Searches model will take into account the table columns within the Profiles model. 
 
 
 ## Database Relations
 ---
 
+With reference to the ERD, the User model was the critical database that would allow the various models to interact with one another. The Profile model had a foreign key to the User model with user_id so that there would be a reference created to ensure that each user had at most one profile. The User model was also referenced by the Conversation and Messages model to ensure that a conversation can be identified by which users in the database are interacting with each other. 
 
+The Profiles model is referenced with foreign keys from other models, being Experiences and ProfilesSpecialty models. By having these models referenced to the Profiles model, it is possible to also extract the user_id when accessing the SQL queries. 
 
 ## Task Allocation
 ---

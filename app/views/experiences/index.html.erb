@@ -2,6 +2,7 @@
 
 <h1>Experiences</h1>
 
+<%# Table format display for the experiences for the user %>
 <table>
   <thead>
     <tr>
@@ -10,21 +11,27 @@
     </tr>
   </thead>
 
+<%# Logic to display only the experiences that belong to the current signed in user %>
+<%# This is to prevent other users experiences from displaying and being destroyed or editted %>
   <% @user_id = current_user.id.to_i %>
   <% @profile = Profile.find_by_user_id(@user_id) %>
   <% @experiences = Experience.where(profile_id: @profile.id) %>
 
+<%# Table body to display all the experiences to the associated profile %>
   <tbody>
     <% @experiences.each do |experience| %>
       <tr>
         <td><%= experience.description %></td>
+        <%# Default link to show the relevant experience %>
         <td><%= link_to 'Show', experience %></td>
         <% if current_user.id != @profile.user_id %>
         <% else %>
+        <%# Default link to edit the selected experience %>
           <td><%= link_to 'Edit', edit_experience_path(experience) %></td>
         <% end %>
         <% if current_user.id != @profile.user_id %>
         <% else %>
+        <%# Default link to destroy the selected experience %>
           <td><%= link_to 'Destroy', experience, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>

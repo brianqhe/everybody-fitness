@@ -4,16 +4,20 @@
 <main class="show-page-container">
   <div class="show-page-content">
       <div class="show-page-photo">
+      <%# Logic to display the profile photo associated with the profile %>
         <% if @profile.photo.attached? %>
         <p>
+        <%# If an image was attached by the user, their photo will be displayed %>
           <%= image_tag @profile.photo, alt: "profile-photo", class: "display-photo" %>
         </p>
         <% else %>
+        <%# If no image was attached by the user, a placeholder image will be used instead for their profile %>
           <%= image_tag "profile-placeholder.jpg", alt: "placeholder-image", class: "display-photo" %>
         <% end %>
       </div>
       <div class="show-page-introduction">
           <div class="show-content">
+          <%# The below content will display all the information associate with the profile %>
             <p>
               <strong>First name:</strong>
               <%= @profile.first_name %>
@@ -41,6 +45,7 @@
 
             <p>
               <strong>Specialty:</strong>
+              <%# Logic to display N/A if the user hasn't selected any specialties, otherwies it will show the selected specialties of the profile %>
               <% if @profile.specialties.empty? %>
                 N/A
               <% else %>
@@ -54,6 +59,7 @@
 
             <p>
               <strong>Experiences:</strong>
+              <%# Logic to display N/A if the user has no got any experiences associated, otherwise will loop through each of the profiles experiences %>
               <% @profile_experiences = Experience.where(profile_id: @profile.id) %>
               <% if @profile_experiences.empty? %>
                 N/A
@@ -65,15 +71,18 @@
                 <% end %>
               <% end %>
             </p>
+            <%# The edit button will only display if the profile belongs to the current user %>
             <% if current_user != @profile.user %>
             <% else %>
               <button type="button" class="btn btn-sm btn-outline-secondary">
                 <%= link_to 'Edit', edit_profile_path(@profile) %>
               </button>
             <% end %>
+            <%# A back button to return to the index page %>
             <button type="button" class="btn btn-sm btn-outline-secondary">
             <%= link_to 'Back', profiles_path %>
             </button>
+            <%# A button to message the profile user will only display if the user is not on the profile that belongs to themselves  %>
             <% if current_user == @profile.user %>
             <% elsif !user_signed_in? %>
               <button type="button" class="btn btn-sm btn-outline-secondary">

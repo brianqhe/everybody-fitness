@@ -1,17 +1,25 @@
-
+<%# Simple form for the associated inputs for the end user %>
 <%= simple_form_for(@profile) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
+    <%# Input for the first name that is a required input %>
     <%= f.input :first_name, required: true, autofocus: true %>
+    <%# Input for the last name that is a required input %>
     <%= f.input :last_name, required: true, autofocus: true %>
+    <%# A selection dropdown that allows the user to select their gender %>
     <%= f.input :sex, required: true, autofocus: true, collection: [['Male', 'Male'], ['Female', 'Female']] %>
+    <%# A selection dropdown that allows the user to select the city they are operating from %>
     <%= f.input :city, required: true, autofocus: true, collection: [['Sydney', 'Sydney'], ['Melbourne', 'Melbourne'], ['Brisbane', 'Brisbane'], ['Canberra', 'Canberra'], ['Adelaide', 'Adelaide'], ['Perth', 'Perth']] %>
+    <%# Input for a user to input their biography or description, with it being a required input %>
     <%= f.input :biography, required: true, autofocus: true %>
     Specialties <br>
+    <%# Code to allow all specialties to display in the form of check boxes %>
+    <%# The collection on what the Specialties can be is displayed as all the specialties that have been seeded in the seed.rb file %>
     <%= f.collection_check_boxes :specialty_ids, Specialty.all, :id, :description %> <br>
     <br>
+    <%# File upload capabilties for an image for the associated user %>
     <%= f.file_field :photo %>
   </div>
 

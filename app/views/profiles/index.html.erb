@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<%# Introductory headings to the page %>
 <div class="search-content">
     <h1 class="title">Welcome to Everybody Fitness</h1>
 </div>
@@ -7,22 +8,27 @@
     <h3 class="subheading">The hub for personal training</h3>
 </div>
 
+<%# logic to display the search bar and redirect the user to the profiles page with the updated result parameter %>
 <div class="search-bar">
   <%= form_with(url: '/profiles', method: 'get', local: true) do %>
     <%= text_field_tag(:search) %>
     <%= submit_tag("Search") %>
   <% end %>
 
+<%# Link to the advanced search path %>
   <%= link_to "Advanced Search", new_search_path %>
 </div>
 
+
     <div class="profile-content">
+    <%# This if statement will check if the total profile results are over 50, if there are, it will only display the first 50 profiles, otherwise will display all the profiles %>
       <% if @result.count > 50 %>
         <% @result = @result[0..49] %>
       <% end %>
           <% @result.each do |profile| %>
         <div class="profile-tile">
           <div class="card shadow-sm">
+          <%# Logic to display the placeholder image if no image was attached by the user in their profile, otherwise their uploaded image will display %>
             <% if profile.photo.attached? %>
             <p>
               <%= image_tag profile.photo, alt: "profile-photo", class: "bd-placeholder-img card-img-top profile-photo"%>
@@ -32,36 +38,42 @@
             <% end %>
             <div class="card-body">
               <h2 class="display-5 profile-name">
+              <%# Displays a string of the users first and last name %>
                 <%= profile.first_name + " " + profile.last_name %>
               </h2>
+              <%# Logic to display a series of blank breaks if the user hasn't input a biography %>
               <p class="card-text">
                 <% if profile.biography.empty? %>
                   <br>
                   <br>
                   <br>
+                  <%# Logic to display the first 150 characters of the profiles biography on the index page  %>
                 <% elsif profile.biography.length > 5 && profile.biography.length < 150 %>
-                    <%= profile.biography[0..199] %>
+                    <%= profile.biography[0..149] %>
                     <br>
                     <br>
                     <br>
+                  <%# Logic to display the first 150 characters of the profiles biography on the index page  %>
                 <% elsif profile.biography.length > 150 %>
                   <%= profile.biography[0..149] %>...
                 <% else %>
                   <%= profile.biography %>
                 <% end %>
-
               </p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
+                <%# Button to display the view button that will display the show.html.erb page for the associated profile %>
                   <button type="button" class="btn btn-sm btn-outline-secondary">
                     <%= link_to 'View', profile %>
                   </button>
+                  <%# Logic to only display the edit button if profile belongs to the logged in user  %>
                   <% if current_user != profile.user %>
                   <% else %>
                     <button type="button" class="btn btn-sm btn-outline-secondary">
                       <%= link_to 'Edit', edit_profile_path(profile) %>
                     </button>
                   <% end %>
+                  <%# Logic to only display the destroy button if the profile belongs to the logged in user %>
                   <% if current_user != profile.user %>
                   <% else %>
                     <button type="button" class="btn btn-sm btn-outline-secondary">
@@ -69,6 +81,7 @@
                     </button>
                   <% end %>
                 </div>
+                <%# Display small text of the profiles location and sex %>
                 <small class="text-muted profile-filter">
                   <%= profile.city %> |
                   <%= profile.sex %>

@@ -5,6 +5,8 @@
 </div>
 
     <div class="profile-content">
+    <%# Logic to set the array for profiles to only include the cardio profiles %>
+    <%# Other than changing the instance variable that is being looped through, the below code is almost identical to the index.html.erb for the profiles view page %>
     <% @boxing = ProfilesSpecialty.where(specialty_id: 30) %>
     <% @boxing_profiles_id = [] %>
     <% @boxing.each do | id | %>

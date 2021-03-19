@@ -132,6 +132,7 @@ ActiveRecord::Schema.define(version: 2021_03_14_094444) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  # The relative t.index associations created throughout the schema are to assist with the queries operate more efficient in Rails
   # All foreign keys that were referenced during migrations
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
